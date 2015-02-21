@@ -14,11 +14,7 @@ if (count($argv) < 2) {
 }
 
 $url   = 'https://www.cloudflare.com/api_json.html';
-
-// cloudflare token
 $tkn   = '';
-
-// email
 $email = '';
 
 $zone  = $argv[1];
