@@ -8,10 +8,20 @@ function __autoload($className) {
     return false;
 } 
 
+if (count($argv) < 2) {
+    print "\nusage: php cldns.php <zone>\n";
+    exit;
+}
+
 $url   = 'https://www.cloudflare.com/api_json.html';
-$tkn   = '1844da91727063907a389ea0697771328150d';
-$email = 'vmanyushin@gmail.com';
-$zone  = 'sysop.pro';
+
+// cloudflare token
+$tkn   = '';
+
+// email
+$email = '';
+
+$zone  = $argv[1];
 
 $rs = new DnsResolver('sysop.pro');
 $cf = new CloudFlare ($url, $tkn, $email, $zone);

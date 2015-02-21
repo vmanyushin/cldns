@@ -1,0 +1,1 @@
+*/1 * * * * cd /home/sysop/Development/Perl/cldns/ && /bin/env php /home/sysop/Development/Perl/cldns/cldns.php sysop.pro > sysop.pro.db
