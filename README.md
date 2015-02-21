@@ -32,4 +32,6 @@ dev            IN  CNAME        www.sysop.pro
 @              IN     MX    10  mx.sysop.pro
 @              IN    SPF        'v=spf1 ip4:54.234.98.199 ~all'
 dev            IN    TXT        'development'
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+it's also PHP version here. PHP version work like Perl.
