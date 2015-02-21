@@ -81,16 +81,6 @@ sub get_content {
     return $data->{'response'}{'recs'}{'objs'};
 }
 
-sub __get_soa_rr {
-    my $self     = shift;
-    my $resolver = new Net::DNS::Resolver();
-    my $reply    = $resolver->query( $self->{'zone'}, 'SOA' );
-    
-    if ( $reply ) {
-        $self->{'soa'} = ($reply->answer)[0];
-    }
-}
-
 sub print_header {
     my $self = shift;
 
@@ -106,5 +96,17 @@ sub print_soa {
     print "\$ORIGIN " . $self->{'zone'} . ".\n";
     $self->{'soa'}->print;
 }
+
+### private function here
+sub __get_soa_rr {
+    my $self     = shift;
+    my $resolver = new Net::DNS::Resolver();
+    my $reply    = $resolver->query( $self->{'zone'}, 'SOA' );
+    
+    if ( $reply ) {
+        $self->{'soa'} = ($reply->answer)[0];
+    }
+}
+
 
 1;
