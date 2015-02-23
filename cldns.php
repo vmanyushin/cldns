@@ -19,7 +19,7 @@ $email = '';
 
 $zone  = $argv[1];
 
-$rs = new DnsResolver('sysop.pro');
+$rs = new DnsResolver($zone);
 $cf = new CloudFlare ($url, $tkn, $email, $zone);
 
 foreach ($cf as $rrs) {
