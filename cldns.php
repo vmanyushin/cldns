@@ -8,22 +8,20 @@ function __autoload($className) {
     return false;
 } 
 
-if (count($argv) < 2) {
-    print "\nusage: php cldns.php <zone>\n";
-    exit;
-}
-
 $url   = 'https://www.cloudflare.com/api_json.html';
-$tkn   = '43234234234';
-$email = 'vmanyushin@gmail.com';
+$tkn   = '';
+$email = '';
 
-$zone  = $argv[1];
+$cf = new CloudFlare ($url, $tkn, $email);
 
-$rs = new DnsResolver($zone);
-$cf = new CloudFlare ($url, $tkn, $email, $zone);
+foreach ($cf as $zone_name => $zone_records) {
 
-foreach ($cf as $rrs) {
-    echo $rrs . "\n";
+    $resolv = new DnsResolver($zone_name);
+    file_put_contents($zone_name . ".db", $resolv->getSoa(), LOCK_EX);
+
+    foreach ($zone_records as $records) {    
+        file_put_contents($zone_name . ".db", "$records\n", FILE_APPEND | LOCK_EX);
+    }
 }
 ?>
 

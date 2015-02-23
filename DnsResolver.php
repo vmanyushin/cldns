@@ -1,6 +1,8 @@
 <?php 
 class DnsResolver
 {
+    public $record = '';
+
     public function __construct($zone = 'example.com')
     {
         $this->rr = dns_get_record($zone);
@@ -14,7 +16,7 @@ class DnsResolver
 
         include 'template.php';
 
-        printf($template2, 
+        $this->record = sprintf($template2, 
             $this->soa['origin'], 
             $this->soa['ttl'],
             $this->soa['serial'],
@@ -22,8 +24,13 @@ class DnsResolver
             $this->soa['retry'],
             $this->soa['expire'],
             $this->soa['minimum-ttl']
-       );
-       
+        );
+        
+    }
+
+    public function getSoa()
+    {
+        return $this->record;
     }
 }
 ?>

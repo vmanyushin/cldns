@@ -6,7 +6,6 @@ $template2 = <<<SOA2
 ; zone $zone exported from cloudflare at $localtime
 ;
 %-20s ; set default origin
-%-20s ; set default TTL
 
 @        IN        SOA    {$this->soa['mname']}.    {$this->soa['rname']}. (
 %40s  ; serial
