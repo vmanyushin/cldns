@@ -14,8 +14,8 @@ if (count($argv) < 2) {
 }
 
 $url   = 'https://www.cloudflare.com/api_json.html';
-$tkn   = '';
-$email = '';
+$tkn   = '43234234234';
+$email = 'vmanyushin@gmail.com';
 
 $zone  = $argv[1];
 

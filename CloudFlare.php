@@ -29,6 +29,7 @@ class CloudFlare implements IteratorAggregate
                             'tkn'   => $this->token,
                             'email' => $this->email,
                             'z'     => $this->zone)));
+        
 
         $response = json_decode(curl_exec($this->curl));
         $objs = $response->response->zones->objs;
@@ -57,8 +58,6 @@ class CloudFlare implements IteratorAggregate
                             'email' => $this->email,
                             'z'     => $this->zone)));
         
-        $response->response->recs->count;
-
         if ($response->response->recs->count == 0)
             return 0;
 
@@ -69,7 +68,8 @@ class CloudFlare implements IteratorAggregate
     { 
         curl_setopt($this->curl, CURLOPT_POSTFIELDS, $post_data);
         $response = json_decode(curl_exec($this->curl));
-
+        
+        print_r($response);
         if ($response->result == 'error') {
             throw new Exception($response->msg);
         }
