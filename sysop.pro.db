@@ -1,0 +1,59 @@
+;; Domain:     sysop.pro
+;; Exported:   2015-02-25 13:42:08
+;; 
+;; This file is intended for use for informational and archival
+;; purposes ONLY and MUST be edited before use on a production
+;; DNS server.  In particular, you must:
+;;   -- update the SOA record with the correct authoritative name server
+;;   -- update the SOA record with the contact e-mail address information
+;;   -- update the NS record(s) with the authoritative name servers for this domain.
+;; 
+;; For further information, please consult the BIND documentation
+;; located on the following website:
+;; 
+;; http://www.isc.org/
+;; 
+;; And RFC 1035:
+;; 
+;; http://www.ietf.org/rfc/rfc1035.txt
+;; 
+;; Please note that we do NOT offer technical support for any use
+;; of this zone data, the BIND name server, or any other third-party
+;; DNS software.
+;; 
+;;     Use at your own risk.
+;; 
+$ORIGIN sysop.pro.
+@	3600	IN	SOA	sysop.pro.	root.sysop.pro.	(
+		2015022501	; serial
+		7200		; refresh
+		3600		; retry
+		86400		; expire
+		3600)		; minimum
+
+
+
+;; NS Records (YOU MUST CHANGE THIS)
+sysop.pro.	300	IN	NS	NS.SOMEWHERE.example.com.
+
+;; MX Records
+sysop.pro.	300	IN	MX	10	mx.sysop.pro.
+
+;; TXT Records
+sysop.pro.	300	IN	TXT	"v=spf1 ip4:92.243.176.75 ~all"
+_adsp._domainkey.sysop.pro.	300	IN	TXT	"dkim=all"
+dev.sysop.pro.	300	IN	TXT	"development"
+primary._domainkey.sysop.pro.	300	IN	TXT	"v=DKIM1\; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAocU+RC/UI1ANX4R+dKP+E8sox8jD48B/GSSdfRBVtCzwbIjVLKVh+W6dynl6JDTuqAUN/vP8iGHNATKALYgBTnm2zjNtgwEaMK9UTndzLX64cOKHSJOfiKm1eCE4mW0GuU6aTxKyIBSgRhne+qfiMyVx0PDMhD1CHKsnUCiomX0PZaHuEZnAVkYJ8kbIUEotk6S9uoo" "xJqXrfSrYiBiWBTWNUN0RP/NGqdZ80h666hWIl2VPpjaG58exUUGaPSoM2MOagIgP8zCNttzfKsaDvTHMxxiGNDxVvyPjmYKs8NP+pn4OWzinYGPCOr37gZexRQzSlZ02KImKf32OwVvvcwIDAQAB\; t=s"
+
+;; CNAME Records
+f530af82b666148673e28f1195a62d17.sysop.pro.	300	IN	CNAME	7817d9436f3ad8b10f6c19a82ef3c23f905c14f2.comodoca.com.
+dev.sysop.pro.	300	IN	CNAME	www.sysop.pro.
+
+;; A Records (IPv4 addresses)
+mx.sysop.pro.	300	IN	A	92.243.176.75
+sysop.pro.	300	IN	A	54.234.98.199
+ns1.sysop.pro.	300	IN	A	54.234.98.199
+ns2.sysop.pro.	300	IN	A	75.102.22.152
+www.sysop.pro.	300	IN	A	54.234.98.199
+smtp.sysop.pro.	300	IN	A	92.243.176.75
+*.sysop.pro.	300	IN	A	92.243.176.75
